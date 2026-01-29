@@ -49,3 +49,9 @@ class Controller:
     """Implementare la parte di ricerca del cammino minimo"""
     # TODO
 
+    def handle_cammino_minimo(self, e):
+        soluzione=self._model.cammino_minimo_ricorsione(float(self._view.txt_soglia.value))         #lista di touple (partenza, arrivo, peso)...
+        self._view.lista_visualizzazione_3.controls.clear()
+        for n in soluzione:
+            self._view.lista_visualizzazione_3.controls.append(ft.Text(soluzione))
+        self._view.page.update()
